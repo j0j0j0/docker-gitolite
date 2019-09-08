@@ -1,0 +1,15 @@
+version: '3.6'
+services:
+  gitolite:
+    build:
+      context: ./
+      labels:
+        gitolite.description: 'Gitolite service'
+    environment:
+      GIT_PUBLICKEY: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC0Z5cnpLgjiSkWr75qPQfC1n4ayZOYufYrrSmwv7uDuSvPqhh76o+wglztA9iVZC0zTAb0MhgqSSgbRs7qdhGAjWPK0+HbDv3PRx4nAqGsJ3sbf6ob+XjYasMYIpiEegPhZfknk4m/yb07ZH7toCuPQiKMQ9o6CvTEv0WTBj0NtCQALAk7w5l5c4Acd31mnWJfVCfm36HM4fJD8+elRHrC59FVU0ZUCzJRecRZyPZ6YndMmYB0FfJY52Sitgth7KM7uHcBZwvj4N9zvs+6EH2b/q3rqxiTUHQT6XkjVKbUA3K0on5d3Sj/RncDAEZrs3IyTpaq6YVnqKzael3MAhQLy60fYVEz/+aIGX9gXVfZPd1VFasxoycVaRldxZ5xy78IhexHVnCL8K8Zck0xiXpw6KPI0gq9IT/GRdbO3IVCnGt6fKnnJXDzuCcA9tbDbX6xLj4gV0ohXVJeyipa13FD11ALmvRX6adH0Psol8U0fm1T6dizp/nudyzuhFrIgP8='
+    ports:
+      - "50122:22"
+    volumes:
+      - ./volume/keys:/etc/ssh/keys
+      - ./volume/data:/var/lib/git
+
